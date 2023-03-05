@@ -21,6 +21,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 async function run() {
     try {
+        await client.connect();
+        console.log("Connected successfully to the MongoDB server");
         // we have create two collections services and orders
         const userCollection = client.db("GeniusCars").collection("Services");
         const orderCollection = client.db("GeniusCars").collection("Orders");
